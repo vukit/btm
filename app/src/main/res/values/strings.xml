@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BT Master</string>
+    <string name="app_name_full">Bluetooth Master</string>
+    <string name="app_name_short">BTM</string>
+    <string name="app_logo">Logo</string>
+    <string name="vendor_name">vukit.ru</string>
+    <string name="app_version">Version</string>
+    <string name="about_text">An application allows you to obtain comprehensive data about Bluetooth devices in Classic and Low Energy mode over RFComm and GATT terminals and share it.</string>
+    <string name="action_about_url">https://vukit.ru/en/projects/bluetooth-master/</string>
+    <string name="action_vendor_url">https://vukit.ru</string>
+    <string name="action_view_details">View details</string>
+    <string name="action_view_more_apps">More Apps</string>
+    <string name="action_view_rate_app">Rate App</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_dashboard">Dashboard</string>
+    <string name="action_search">Search</string>
+    <string name="action_about">About</string>
+    <string name="action_device_details">Details</string>
+    <string name="action_added_device_to_dashboard">The device has been added to the dashboard</string>
+    <string name="action_updated_device_to_dashboard">The device record is updated on the dashboard</string>
+    <string name="action_adding_device_to_dashboard">The device is being added to the dashboard</string>
+    <string name="action_delete_device_on_dashboard">Is being removed&#8230;</string>
+    <string name="action_removed_device_record_to_dashboard">The device record is removed on the dashboard</string>
+    <string name="action_removed_device_records_to_dashboard">The device records is removed on the dashboard</string>
+    <string name="search_send_report">Send report</string>
+    <string name="search_send_json_report_server">Sending JSON report to</string>
+    <string name="search_successfully_send_json_report_server">JSON report is successfully sent to</string>
+    <string name="search_unsuccessfully_send_json_report_server">JSON report is not sent to</string>
+    <string name="search_send_server_error">Server error</string>
+    <string name="search_send_server_error_timeout">The server is not responding</string>
+    <string name="search_send_server_error_ssl">Invalid SSL server certificate</string>
+    <string name="search_send_server_error_connection">Error connecting to server</string>
+    <string name="search_send_server_error_authentication">Error authentication server</string>
+    <string name="dashboard_delete_selected_devices">Delete selected devices</string>
+    <string name="common_settings">Common</string>
+    <string name="startup_screen">Startup screen</string>
+    <string name="search_settings">Search</string>
+    <string name="search_default_mode">Default mode</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="low_energy">Low Energy</string>
+    <string name="classic">Classic</string>
+    <string name="bluetooth_le">Bluetooth Low Energy</string>
+    <string name="bluetooth_clc">Bluetooth Classic</string>
+    <string name="button_search_start">Start</string>
+    <string name="button_search_stop">Stop</string>
+    <string name="discovery_duration">Discovery time</string>
+    <string name="detected_devices">Detected devices</string>
+    <string name="unnamed">Unnamed</string>
+    <string name="undefined">Undefined</string>
+    <string name="unknown">unknown</string>
+    <string name="sec">sec</string>
+    <string name="ms">ms</string>
+    <string name="sec10">10 sec</string>
+    <string name="sec15">15 sec</string>
+    <string name="sec20">20 sec</string>
+    <string name="sec30">30 sec</string>
+    <string name="sec60">60 sec</string>
+    <string name="sec120">120 sec</string>
+    <string name="about_device">Device information</string>
+    <string name="about_device_brief">Show briefly</string>
+    <string name="about_device_details">Show details</string>
+    <string name="device_name">Name:</string>
+    <string name="device_mac_address">MAC address:</string>
+    <string name="device_rssi">RSSI:</string>
+    <string name="device_class">Class:</string>
+    <string name="device_type">Type:</string>
+    <string name="device_scan_record">ScanRecord:</string>
+    <string name="device_latitude">Latitude:</string>
+    <string name="device_longitude">Longitude:</string>
+    <string name="device_manufacturer">Manufacturer:</string>
+    <string name="color_device_name">#3F51B5</string>
+    <string name="color_service_uuid">#3F51B5</string>
+    <string name="search_select_device">Select device</string>
+    <string name="search_cancel_selection">Cancel selection</string>
+    <string name="dashboard_select_device">Select device</string>
+    <string name="dashboard_cancel_selection">Cancel selections</string>
+    <string name="dBm">dBm</string>
+    <string name="receiving_server_report">Report recipient</string>
+    <string name="receiving_server_report_url">URL</string>
+    <string name="receiving_server_report_username">Username</string>
+    <string name="receiving_server_report_password">Password</string>
+    <string name="receiving_server_report_protocols">WS protocols</string>
+    <string name="dashboard_settings">Dashboard</string>
+    <string name="are_you_sure">Are you sure?</string>
+    <string name="device_details_send_report">Send report</string>
+    <string name="device_details_pair">Pair</string>
+    <string name="device_details_connect">Connect</string>
+    <string name="device_details_disconnect">Disconnect</string>
+    <string name="device_details_add_to_dashboard">Add to dashboard</string>
+    <string name="device_paired">Paired:</string>
+    <string name="bluetooth_unpair_device">Unpair?</string>
+    <string name="bluetooth_error_paired_device">Pairing error</string>
+    <string name="bluetooth_error_unpaired_device">Cancellation of pairing error</string>
+    <string name="bluetooth_successful_pairing">Successful pairing</string>
+    <string name="bluetooth_successful_unpairing">Successful cancellation of pairing</string>
+    <string name="device_is_not_responding">The device is not responding</string>
+    <string name="waiting_for_response_device">Waiting for a response from the device&#8230;</string>
+    <string name="stop">Stop</string>
+    <string name="yes">yes</string>
+    <string name="no">no</string>
+    <string name="gcl_start_gatt_connection">Start GATT connection.</string>
+    <string name="gcl_gatt_server_is_not_responding">The GATT server is not responding.</string>
+    <string name="gcl_stop_gatt_connection">Stop GATT connection.</string>
+    <string name="gcl_connected_to_gatt_server">Connected to GATT server.</string>
+    <string name="gcl_discovering_gatt_services">Discovering GATT services.</string>
+    <string name="gcl_disconnected_from_gatt_server">Disconnected from GATT server.</string>
+    <string name="gcl_error_connecting_to_gatt_server_csc">"Error connecting to GATT server ( CSC: "</string>
+    <string name="gcl_error_get_gatt_services_sd">"Error get GATT Services ( SD: "</string>
+    <string name="gcl_discovered_services">"Discovered services: "</string>
+    <string name="gcl_reading_gatt_characteristics">Reading GATT characteristics.</string>
+    <string name="gcl_reading_gatt_characteristic">Reading GATT characteristic:</string>
+    <string name="gcl_discovered_characteristics">"Discovered characteristics: "</string>
+    <string name="gcl_reading_gatt_descriptors">Reading GATT descriptors.</string>
+    <string name="gcl_discovered_descriptors">"Discovered descriptors: "</string>
+    <string name="gcl_waiting_for">"Waiting for "</string>
+    <string name="gatt_value">"Value: "</string>
+    <string name="gatt_properties">"Properties: "</string>
+    <string name="gatt_descriptors">"Descriptors: "</string>
+    <string name="gatt_sending_completed_successfully">Operation completed successfully</string>
+    <string name="gatt_unsuccessful_sending">Unsuccessful operation</string>
+    <string name="change_device_name">Change device name</string>
+    <string name="name">Name</string>
+    <string name="dashboard_search_dialog_title">Search options</string>
+    <string name="dashboard_search_reset_button">Reset</string>
+    <string name="dashboard_search_string">Search text</string>
+    <string name="dashboard_search_radio_group_name">Search area</string>
+    <string name="radio_button_none">None</string>
+    <string name="radio_button_only">Only</string>
+    <string name="radio_button_or">Or</string>
+    <string name="radio_button_and">And</string>
+    <string name="dashboard_search_area_size">Search area size</string>
+    <string name="meter10">10 m</string>
+    <string name="meter20">20 m</string>
+    <string name="meter50">50 m</string>
+    <string name="meter100">100 m</string>
+    <string name="search_filter_dialog_title">Filter options</string>
+    <string name="search_filter_string">Filter text</string>
+    <string name="search_filter_radio_group_name">RSSI (dBm) ></string>
+    <string name="device_details_settings">Details</string>
+    <string name="device_details_startup_screen">Startup screen</string>
+    <string name="device_details_startup_screen_home">Home</string>
+    <string name="device_details_startup_screen_gatt_services">GATT terminal</string>
+    <string name="device_details_startup_screen_terminal">RFComm terminal</string>
+    <string name="device_details_home_radio_button_map">Map</string>
+    <string name="device_details_home_radio_button_sdp">SDP</string>
+    <string name="device_details_home_radio_button_scan_record">ScanRecord</string>
+    <string name="no_data">No data</string>
+    <string name="terminal_message_fail_read_data">Fail read data.</string>
+    <string name="terminal_message_fail_send_data">Fail send data.</string>
+    <string name="terminal_message_connection">Connection&#8230;</string>
+    <string name="terminal_message_no_connection">No connection.</string>
+    <string name="terminal_message_fail_connection">Fail connection.</string>
+    <string name="terminal_message_connected">Connected.</string>
+    <string name="terminal_message_incorrect_your_service_uuid">Incorrect your service UUID.</string>
+    <string name="terminal_send_button">Send</string>
+    <string name="terminal_input_field">Enter the command</string>
+    <string name="terminal_invalid_hex_format_command">Invalid HEX format command</string>
+    <string name="device_details_terminal_radio_button_spp">SPP</string>
+    <string name="device_details_terminal_radio_button_dial_up">Dial-up</string>
+    <string name="device_details_terminal_radio_button_my_service">My service</string>
+    <string name="device_details_terminal_dialog_settings_title">RFComm terminal settings</string>
+    <string name="device_details_terminal_dialog_settings_connection_mode">Connection mode</string>
+    <string name="device_details_terminal_dialog_settings_secure">Secure</string>
+    <string name="device_details_terminal_dialog_settings_insecure">Insecure</string>
+    <string name="device_details_terminal_dialog_send_in_the_end">Send in the end</string>
+    <string name="device_details_terminal_dialog_cr">CR</string>
+    <string name="device_details_terminal_dialog_lf">LF</string>
+    <string name="device_details_terminal_dialog_output_format">Output format</string>
+    <string name="device_details_terminal_dialog_input_format">Input format</string>
+    <string name="device_details_terminal_dialog_text">Text</string>
+    <string name="device_details_terminal_dialog_hex">Hex</string>
+    <string name="device_details_terminal_dialog_list_commands">Command list</string>
+    <string name="device_details_terminal_clear_log">Clear log</string>
+    <string name="device_details_terminal_dialog_my_uuid">Your service UUID</string>
+    <string name="terminal_input_my_uuid">Enter UUID</string>
+    <string name="device_details_services_radio_button_gatt_services">Services</string>
+    <string name="device_details_services_radio_button_gatt_characteristic">Characteristic</string>
+    <string name="device_details_services_log_connection_title">GATT connection log:</string>
+    <string name="device_details_services_log_connection_is_empty">GATT connection log is empty</string>
+    <string name="device_details_services_show_gatt_log">Display log</string>
+    <string name="device_details_services_clear_gatt_log">Clear log</string>
+    <string name="device_details_services_dialog_list_commands">List commands</string>
+    <string name="device_details_services_no_gatt_connection">No GATT connection</string>
+    <string name="services_invalid_hex_format_value">Invalid HEX format value</string>
+    <string name="characteristic_edit_send_button">Send</string>
+    <string name="characteristic_edit_type_text">Text</string>
+    <string name="characteristic_edit_type_hex">Hex</string>
+    <string name="value_format">Value format</string>
+    <string name="new_value">New value</string>
+    <string name="enable_notify">Enable notify</string>
+    <string name="descriptor_edit_type_text">Text</string>
+    <string name="descriptor_edit_type_hex">Hex</string>
+    <string name="descriptor_edit_send_button">Send</string>
+    <string name="device_details_gatt_terminal_dialog_settings_title">GATT terminal settings</string>
+    <string name="read_all_characteristics_at_once">Read all characteristics at once</string>
+    <string name="expand_list_of_services">Expand service list</string>
+    <string name="reading_timeout_ms">Reading timeout (ms)</string>
+    <string name="auto_connect">Auto connect</string>
+    <string name="device_details_services_read_remote_rssi">Remote RSSI</string>
+    <string name="device_new_mtu_value">New MTU value:</string>
+    <string name="device_details_services_request_new_mtu_value">New MTU value</string>
+    <string name="device_details_services_request_connection_priority">Connection priority</string>
+    <string name="device_details_services_balanced_connection">Balanced connection</string>
+    <string name="device_details_services_high_priority">Low latency connection</string>
+    <string name="device_details_services_low_power">Low power connection</string>
+    <string name="save_as_my_service">Save as "My service"</string>
+    <string name="invalid_mtu_value">Invalid MTU value</string>
+    <string name="location_provider">Location provider</string>
+    <string name="location_provider_passive" translatable="false">passive</string>
+    <string name="location_provider_network" translatable="false">network</string>
+    <string name="location_provider_gps" translatable="false">gps</string>
+    <string name="turning_on_bluetooth">Turning on Bluetooth…</string>
+    <string name="bluetooth_turn_off">Turn off BT when closing</string>
+    <string-array name="pref_device_details_startup_screen">
+        <item>@string/device_details_startup_screen_home</item>
+        <item>@string/device_details_startup_screen_gatt_services</item>
+        <item>@string/device_details_startup_screen_terminal</item>
+    </string-array>
+    <string-array name="search_area_size">
+        <item>@string/meter10</item>
+        <item>@string/meter20</item>
+        <item>@string/meter50</item>
+        <item>@string/meter100</item>
+    </string-array>
+    <string-array name="pref_startup_screen">
+        <item>@string/action_dashboard</item>
+        <item>@string/action_search</item>
+        <item>@string/action_settings</item>
+        <item>@string/action_about</item>
+    </string-array>
+    <string-array name="discovery_duration">
+        <item>@string/sec10</item>
+        <item>@string/sec15</item>
+        <item>@string/sec20</item>
+        <item>@string/sec30</item>
+        <item>@string/sec60</item>
+        <item>@string/sec120</item>
+    </string-array>
+    <string-array name="pref_about_device">
+        <item>@string/about_device_brief</item>
+        <item>@string/about_device_details</item>
+    </string-array>
+    <string-array name="pref_bluetooth_mode">
+        <item>@string/bluetooth_clc</item>
+        <item>@string/bluetooth_le</item>
+    </string-array>
+    <string-array name="pref_location_providers">
+        <item>@string/location_provider_passive</item>
+        <item>@string/location_provider_network</item>
+        <item>@string/location_provider_gps</item>
+    </string-array>
+</resources>

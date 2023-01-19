@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/dashboard_search_string"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:hint="@string/dashboard_search_string"
+        android:inputType="text|textNoSuggestions"
+        tools:ignore="Autofill" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:layout_marginBottom="10dp"
+        android:labelFor="@+id/dashboard_radio_group"
+        android:text="@string/dashboard_search_radio_group_name"
+        android:textSize="18sp" />
+
+    <RadioGroup
+        android:id="@id/dashboard_radio_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/dashboard_radio_button_none"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:hint="@string/radio_button_none" />
+
+        <RadioButton
+            android:id="@+id/dashboard_radio_button_only"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/radio_button_only" />
+
+        <RadioButton
+            android:id="@+id/dashboard_radio_button_or"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/radio_button_or" />
+
+        <RadioButton
+            android:id="@+id/dashboard_radio_button_and"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/radio_button_and" />
+    </RadioGroup>
+
+    <com.google.android.gms.maps.MapView
+        xmlns:map="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/dashboard_search_mapView"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        map:cameraZoom="17"
+        map:mapType="normal" />
+</LinearLayout>

@@ -1,0 +1,18 @@
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/dashboard_delete_selected_devices"
+        android:icon="@drawable/ic_delete"
+        android:orderInCategory="10"
+        android:title="@string/dashboard_delete_selected_devices"
+        android:visible="false"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/dashboard_cancel_check_devices"
+        android:icon="@drawable/ic_cancel_select"
+        android:orderInCategory="20"
+        android:title="@string/dashboard_cancel_selection"
+        android:visible="false"
+        app:showAsAction="ifRoom" />
+</menu>

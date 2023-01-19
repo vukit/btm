@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="48dp"
+    android:layout_marginBottom="48dp"
+    android:overScrollMode="ifContentScrolls"
+    android:scrollbars="none">
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true"
+        android:padding="20dp">
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/read_all_characteristics_at_once"
+                android:textColor="@android:color/black" />
+
+            <CheckBox
+                android:id="@+id/read_all_characteristics_at_once"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:checked="true"
+                android:textColorHint="@android:color/black" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/expand_list_of_services"
+                android:textColor="@android:color/black" />
+
+            <CheckBox
+                android:id="@+id/expand_list_of_services"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:checked="true"
+                android:textColorHint="@android:color/black" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/auto_connect"
+                android:textColor="@android:color/black" />
+
+            <CheckBox
+                android:id="@+id/auto_connect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:checked="false"
+                android:textColorHint="@android:color/black" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/reading_timeout_ms"
+                android:textColor="@android:color/black" />
+
+            <EditText
+                android:id="@+id/reading_timeout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:ems="5"
+                android:inputType="numberDecimal"
+                tools:ignore="Autofill,LabelFor" />
+        </TableRow>
+    </TableLayout>
+</ScrollView>

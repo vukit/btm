@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="false">
+
+    <LinearLayout
+        android:id="@+id/device_details_home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/device_details_home_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingEnd="20dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="20dp"
+            android:paddingEnd="16dp">
+
+            <RadioGroup
+                android:id="@+id/device_details_home_radio_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:checkedButton="@+id/radio_button_map"
+                android:orientation="horizontal"
+                android:paddingBottom="5dp">
+
+                <RadioButton
+                    android:id="@id/radio_button_map"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/device_details_home_radio_button_map"
+                    android:textColorHint="@android:color/black" />
+
+                <RadioButton
+                    android:id="@+id/radio_button_sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/device_details_home_radio_button_sdp"
+                    android:textColorHint="@android:color/black" />
+
+                <RadioButton
+                    android:id="@+id/radio_button_scan_record"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/device_details_home_radio_button_scan_record"
+                    android:textColorHint="@android:color/black" />
+            </RadioGroup>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.gms.maps.MapView
+                    xmlns:map="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/device_details_home_mapView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    map:cameraZoom="17"
+                    map:mapType="normal" />
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fillViewport="true"
+                    android:scrollbars="vertical">
+
+                    <TextView
+                        android:id="@+id/device_details_services_scan_record"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusable="true"
+                        android:longClickable="true"
+                        android:textIsSelectable="true"
+                        android:visibility="gone" />
+                </ScrollView>
+
+                <ListView
+                    android:id="@+id/device_details_services_from_sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/device_details_services_from_sdp_empty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone" />
+            </FrameLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/device_details_services"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/device_details_services_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingEnd="20dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/device_details_gatt_terminal_settings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@null"
+                    android:contentDescription="@string/device_details_gatt_terminal_dialog_settings_title"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="20dp"
+                    app:srcCompat="@drawable/ic_action_settings" />
+
+                <ImageButton
+                    android:id="@+id/device_details_services_list_commands"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@null"
+                    android:contentDescription="@string/device_details_services_dialog_list_commands"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="20dp"
+                    app:srcCompat="@drawable/ic_action_list_commands" />
+
+                <RadioGroup
+                    android:id="@+id/device_details_services_radio_group"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:checkedButton="@id/radio_button_gatt_no_select"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radio_button_gatt_services"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/device_details_services_radio_button_gatt_services"
+                        android:textColorHint="@android:color/black" />
+
+                    <RadioButton
+                        android:id="@+id/radio_button_gatt_characteristic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/device_details_services_radio_button_gatt_characteristic"
+                        android:textColorHint="@android:color/black" />
+
+                    <RadioButton
+                        android:id="@+id/radio_button_gatt_no_select"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ExpandableListView
+                    android:id="@+id/device_details_services_view_gatt_services"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:groupIndicator="@null"
+                    android:scrollbars="none"
+                    android:visibility="gone" />
+
+                <ScrollView
+                    android:id="@+id/devices_details_services_view_gatt_characteristic"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fillViewport="true"
+                    android:scrollbars="vertical"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:isScrollContainer="true"
+                        android:orientation="vertical"
+                        android:paddingTop="10dp">
+
+                        <HorizontalScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:scrollbars="none">
+
+                            <TextView
+                                android:id="@+id/device_details_gatt_characteristics_info"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </HorizontalScrollView>
+
+                        <CheckBox
+                            android:id="@+id/device_details_gatt_characteristics_enable_notify"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:hint="@string/enable_notify" />
+
+                        <RadioGroup
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checkedButton="@+id/device_details_gatt_characteristics_type_hex"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/value_format"
+                                android:textColor="@android:color/black" />
+
+                            <RadioButton
+                                android:id="@+id/device_details_gatt_characteristics_type_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/characteristic_edit_type_text" />
+
+                            <RadioButton
+                                android:id="@id/device_details_gatt_characteristics_type_hex"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/characteristic_edit_type_hex" />
+                        </RadioGroup>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <EditText
+                                android:id="@+id/device_details_gatt_characteristics_new_value"
+                                android:layout_width="300dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:hint="@string/new_value"
+                                android:inputType="text|textNoSuggestions"
+                                android:maxLines="1"
+                                tools:ignore="Autofill" />
+
+                            <ImageButton
+                                android:id="@+id/device_details_gatt_characteristics_send_value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:background="@null"
+                                android:contentDescription="@string/characteristic_edit_send_button"
+                                app:srcCompat="@drawable/ic_action_send" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/device_details_gatt_descriptors"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="20dp"
+                                android:paddingBottom="10dp"
+                                android:text="@string/gatt_descriptors"
+                                android:textColor="@android:color/black" />
+
+                            <Spinner
+                                android:id="@+id/device_details_gatt_descriptor_spinner"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+
+                            <HorizontalScrollView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:scrollbars="none">
+
+                                <TextView
+                                    android:id="@+id/device_details_gatt_descriptor_info"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="70dp"
+                                    android:text="" />
+                            </HorizontalScrollView>
+
+                            <RadioGroup
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:checkedButton="@+id/device_details_gatt_descriptor_type_hex"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/value_format"
+                                    android:textColor="@android:color/black" />
+
+                                <RadioButton
+                                    android:id="@+id/device_details_gatt_descriptor_type_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:hint="@string/descriptor_edit_type_text" />
+
+                                <RadioButton
+                                    android:id="@id/device_details_gatt_descriptor_type_hex"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:hint="@string/descriptor_edit_type_hex" />
+                            </RadioGroup>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <EditText
+                                    android:id="@+id/device_details_gatt_descriptor_new_value"
+                                    android:layout_width="300dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:hint="@string/new_value"
+                                    android:inputType="text|textNoSuggestions"
+                                    android:maxLines="1"
+                                    tools:ignore="Autofill" />
+
+                                <ImageButton
+                                    android:id="@+id/device_details_gatt_descriptor_send_value"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:background="@null"
+                                    android:contentDescription="@string/descriptor_edit_send_button"
+                                    app:srcCompat="@drawable/ic_action_send" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </ScrollView>
+
+                <ScrollView
+                    android:id="@+id/device_details_services_view_gatt_log"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fillViewport="true"
+                    android:scrollbars="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/device_details_services_gatt_log"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusable="true"
+                        android:longClickable="true"
+                        android:scrollbars="none"
+                        android:textIsSelectable="true" />
+                </ScrollView>
+            </FrameLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/device_details_terminal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/device_details_terminal_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingEnd="20dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="20dp"
+            android:paddingEnd="16dp">
+
+            <RadioGroup
+                android:id="@+id/device_details_terminal_radio_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:checkedButton="@+id/radio_button_spp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radio_button_spp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/device_details_terminal_radio_button_spp"
+                    android:textColorHint="@android:color/black" />
+
+                <RadioButton
+                    android:id="@+id/radio_button_dial_up"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/device_details_terminal_radio_button_dial_up"
+                    android:textColorHint="@android:color/black" />
+
+                <RadioButton
+                    android:id="@+id/radio_button_my_service"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/device_details_terminal_radio_button_my_service"
+                    android:textColorHint="@android:color/black" />
+            </RadioGroup>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:paddingTop="15dp">
+
+                <ImageButton
+                    android:id="@+id/device_details_terminal_settings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@null"
+                    android:contentDescription="@string/device_details_terminal_dialog_settings_title"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="20dp"
+                    app:srcCompat="@drawable/ic_action_settings" />
+
+                <ImageButton
+                    android:id="@+id/device_details_terminal_list_commands"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@null"
+                    android:contentDescription="@string/device_details_terminal_dialog_list_commands"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="20dp"
+                    app:srcCompat="@drawable/ic_action_list_commands" />
+
+                <EditText
+                    android:id="@+id/device_details_terminal_command"
+                    android:layout_width="400dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:hint="@string/terminal_input_field"
+                    android:inputType="text|textNoSuggestions"
+                    android:maxLines="1"
+                    tools:ignore="Autofill" />
+
+                <ImageButton
+                    android:id="@+id/device_details_terminal_command_send"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@null"
+                    android:contentDescription="@string/terminal_send_button"
+                    app:srcCompat="@drawable/ic_action_send" />
+            </LinearLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fillViewport="true"
+                android:scrollbars="vertical">
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/device_details_terminal_log"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="5dp" />
+                </HorizontalScrollView>
+            </ScrollView>
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/device_details_fab_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:visibility="visible"
+        app:borderWidth="0dp"
+        app:fabSize="mini"
+        app:srcCompat="@null"
+        tools:ignore="ContentDescription" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/device_details_fab_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:translationX="0dp"
+        android:translationY="0dp"
+        android:visibility="gone"
+        app:borderWidth="0dp"
+        app:fabSize="mini"
+        app:srcCompat="@drawable/ic_fab_home"
+        tools:ignore="ContentDescription" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/device_details_fab_services"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:translationX="0dp"
+        android:translationY="-50dp"
+        android:visibility="gone"
+        app:borderWidth="0dp"
+        app:fabSize="mini"
+        app:srcCompat="@drawable/ic_fab_services"
+        tools:ignore="ContentDescription" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/device_details_fab_terminal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:translationX="0dp"
+        android:translationY="-100dp"
+        android:visibility="gone"
+        app:borderWidth="0dp"
+        app:fabSize="mini"
+        app:srcCompat="@drawable/ic_fab_terminal"
+        tools:ignore="ContentDescription" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

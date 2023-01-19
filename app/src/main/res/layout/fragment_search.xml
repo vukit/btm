@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="false"
+    android:orientation="vertical">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingBottom="0dp">
+
+            <RadioGroup
+                android:id="@+id/search_fragment_radio_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:checkedButton="@+id/search_fragment_radio_button_clc"
+                android:orientation="horizontal"
+                android:paddingTop="7dp"
+                android:paddingBottom="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="5dp"
+                    android:text="@string/bluetooth"
+                    android:textColor="@android:color/black" />
+
+                <RadioButton
+                    android:id="@id/search_fragment_radio_button_clc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/classic"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="5dp"
+                    android:textColorHint="@android:color/black" />
+
+                <RadioButton
+                    android:id="@+id/search_fragment_radio_button_le"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/low_energy"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="5dp"
+                    android:textColorHint="@android:color/black" />
+            </RadioGroup>
+
+            <ListView
+                android:id="@android:id/list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:cacheColorHint="@android:color/transparent"
+                android:listSelector="@android:color/transparent"
+                android:scrollbars="none" />
+        </LinearLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/search_filter_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/fab_margin"
+            android:visibility="visible"
+            app:borderWidth="0dp"
+            app:fabSize="mini"
+            tools:ignore="ContentDescription" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</LinearLayout>
+

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <PreferenceCategory android:title="@string/common_settings">
+        <ListPreference
+            android:defaultValue="@string/action_search"
+            android:entries="@array/pref_startup_screen"
+            android:entryValues="@array/pref_startup_screen"
+            android:key="STARTUP_SCREEN"
+            android:title="@string/startup_screen"
+            app:useSimpleSummaryProvider="true" />
+        <ListPreference
+            android:defaultValue="@string/location_provider_passive"
+            android:entries="@array/pref_location_providers"
+            android:entryValues="@array/pref_location_providers"
+            android:key="LOCATION_PROVIDER"
+            android:title="@string/location_provider"
+            app:useSimpleSummaryProvider="true" />
+        <CheckBoxPreference
+            android:title="@string/bluetooth_turn_off"
+            android:key="BLUETOOTH_TURN_OFF"
+            android:defaultValue="false"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/search_settings">
+        <ListPreference
+            android:defaultValue="@string/sec20"
+            android:entries="@array/discovery_duration"
+            android:entryValues="@array/discovery_duration"
+            android:key="DISCOVERY_DURATION"
+            android:title="@string/discovery_duration"
+            app:useSimpleSummaryProvider="true" />
+        <ListPreference
+            android:defaultValue="@string/bluetooth_clc"
+            android:entries="@array/pref_bluetooth_mode"
+            android:entryValues="@array/pref_bluetooth_mode"
+            android:key="SEARCH_DEFAULT_MODE"
+            android:title="@string/search_default_mode"
+            app:useSimpleSummaryProvider="true" />
+        <ListPreference
+            android:defaultValue="@string/about_device_details"
+            android:entries="@array/pref_about_device"
+            android:entryValues="@array/pref_about_device"
+            android:key="ABOUT_DEVICE"
+            android:title="@string/about_device"
+            app:useSimpleSummaryProvider="true" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/dashboard_settings">
+        <ListPreference
+            android:defaultValue="@string/meter100"
+            android:entries="@array/search_area_size"
+            android:entryValues="@array/search_area_size"
+            android:key="DASHBOARD_SEARCH_AREA_SIZE"
+            android:title="@string/dashboard_search_area_size"
+            app:useSimpleSummaryProvider="true" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/device_details_settings">
+        <ListPreference
+            android:defaultValue="@string/device_details_startup_screen_home"
+            android:entries="@array/pref_device_details_startup_screen"
+            android:entryValues="@array/pref_device_details_startup_screen"
+            android:key="DEVICE_DETAILS_STARTUP_SCREEN"
+            android:title="@string/device_details_startup_screen"
+            app:useSimpleSummaryProvider="true" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/receiving_server_report">
+        <EditTextPreference
+            android:key="RECEIVING_SERVER_REPORT_URL"
+            android:title="@string/receiving_server_report_url"
+            app:useSimpleSummaryProvider="true" />
+        <EditTextPreference
+            android:key="RECEIVING_SERVER_REPORT_USERNAME"
+            android:title="@string/receiving_server_report_username"
+            app:useSimpleSummaryProvider="true" />
+        <EditTextPreference
+            android:key="RECEIVING_SERVER_REPORT_PASSWORD"
+            android:title="@string/receiving_server_report_password"
+            app:useSimpleSummaryProvider="true" />
+        <EditTextPreference
+            android:key="RECEIVING_SERVER_REPORT_PROTOCOLS"
+            android:title="@string/receiving_server_report_protocols"
+            app:useSimpleSummaryProvider="true" />
+    </PreferenceCategory>
+</PreferenceScreen>

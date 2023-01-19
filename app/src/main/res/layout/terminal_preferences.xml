@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="48dp"
+    android:layout_marginBottom="48dp"
+    android:overScrollMode="ifContentScrolls"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/device_details_terminal_dialog_settings_connection_mode"
+                    android:textColor="@android:color/black" />
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:checkedButton="@+id/connection_mode_insecure"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@id/connection_mode_insecure"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/device_details_terminal_dialog_settings_insecure"
+                        android:textColorHint="@android:color/black" />
+
+                    <RadioButton
+                        android:id="@+id/connection_mode_secure"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/device_details_terminal_dialog_settings_secure"
+                        android:textColorHint="@android:color/black" />
+                </RadioGroup>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/device_details_terminal_dialog_send_in_the_end"
+                    android:textColor="@android:color/black" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/output_send_cr"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:checked="true"
+                        android:hint="@string/device_details_terminal_dialog_cr"
+                        android:textColorHint="@android:color/black" />
+
+                    <CheckBox
+                        android:id="@+id/output_send_lf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:hint="@string/device_details_terminal_dialog_lf"
+                        android:textColorHint="@android:color/black" />
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/device_details_terminal_dialog_output_format"
+                    android:textColor="@android:color/black" />
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:checkedButton="@+id/output_text_format"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@id/output_text_format"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/device_details_terminal_dialog_text"
+                        android:textColorHint="@android:color/black" />
+
+                    <RadioButton
+                        android:id="@+id/output_hex_format"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/device_details_terminal_dialog_hex"
+                        android:textColorHint="@android:color/black" />
+                </RadioGroup>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/device_details_terminal_dialog_input_format"
+                    android:textColor="@android:color/black" />
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:checkedButton="@+id/input_text_format"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@id/input_text_format"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/device_details_terminal_dialog_text"
+                        android:textColorHint="@android:color/black" />
+
+                    <RadioButton
+                        android:id="@+id/input_hex_format"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/device_details_terminal_dialog_hex"
+                        android:textColorHint="@android:color/black" />
+                </RadioGroup>
+            </TableRow>
+        </TableLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:text="@string/device_details_terminal_dialog_my_uuid"
+            android:textColor="@android:color/black" />
+
+        <EditText
+            android:id="@+id/terminal_my_uuid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/terminal_input_my_uuid"
+            android:inputType="text|textNoSuggestions"
+            android:maxLines="1"
+            tools:ignore="Autofill" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:text="@string/device_details_terminal_dialog_list_commands"
+            android:textColor="@android:color/black" />
+
+        <EditText
+            android:id="@+id/terminal_command_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/terminal_input_field"
+            android:inputType="text|textNoSuggestions"
+            android:maxLines="1"
+            tools:ignore="Autofill" />
+
+        <EditText
+            android:id="@+id/terminal_command_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/terminal_input_field"
+            android:inputType="text|textNoSuggestions"
+            android:maxLines="1"
+            tools:ignore="Autofill" />
+
+        <EditText
+            android:id="@+id/terminal_command_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/terminal_input_field"
+            android:inputType="text|textNoSuggestions"
+            android:maxLines="1"
+            tools:ignore="Autofill" />
+
+        <EditText
+            android:id="@+id/terminal_command_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/terminal_input_field"
+            android:inputType="text|textNoSuggestions"
+            android:maxLines="1"
+            tools:ignore="Autofill" />
+
+        <EditText
+            android:id="@+id/terminal_command_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/terminal_input_field"
+            android:inputType="text|textNoSuggestions"
+            android:maxLines="1"
+            tools:ignore="Autofill" />
+    </LinearLayout>
+</ScrollView>

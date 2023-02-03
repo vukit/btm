@@ -7,11 +7,15 @@
     <string name="vendor_name">vukit.ru</string>
     <string name="app_version">Version</string>
     <string name="about_text">An application allows you to obtain comprehensive data about Bluetooth devices in Classic and Low Energy mode over RFComm and GATT terminals and share it.</string>
-    <string name="action_about_url">https://vukit.ru/en/projects/bluetooth-master/</string>
-    <string name="action_vendor_url">https://vukit.ru</string>
-    <string name="action_view_details">View details</string>
-    <string name="action_view_more_apps">More Apps</string>
-    <string name="action_view_rate_app">Rate App</string>
+    <string name="action_vendor_url" translatable="false">https://vukit.ru</string>
+    <string name="action_instruction_url">https://vukit.ru/en/projects/bluetooth-master/</string>
+    <string name="action_all_projects_url">https://vukit.ru/en/</string>
+    <string name="action_privacy_policy_url" translatable="false">https://vukit.ru/privacy-policy/bluetooth-master/</string>
+    <string name="action_license_url" translatable="false">https://vukit.ru/licenses/mit/</string>
+    <string name="action_view_instruction">Instruction</string>
+    <string name="action_view_privacy_policy">Privacy Policy</string>
+    <string name="action_view_license">License</string>
+    <string name="action_view_all_projects">All projects</string>
     <string name="action_settings">Settings</string>
     <string name="action_dashboard">Dashboard</string>
     <string name="action_search">Search</string>

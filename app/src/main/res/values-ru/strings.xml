@@ -199,11 +199,12 @@
     <string name="about_text">Приложение позволяет получать полную информацию о Bluetooth устройствах в режимах Classic и Low Enegry с помощью RFComm и GATT терминалов и делиться ею.</string>
     <string name="app_logo">Logo</string>
     <string name="app_version">Версия</string>
-    <string name="action_view_details">Подробно</string>
-    <string name="action_view_more_apps">Другие приложения</string>
-    <string name="action_view_rate_app">Оцените приложение</string>
-    <string name="action_about_url">https://vukit.ru/projects/bluetooth-master/</string>
-    <string name="action_vendor_url">https://vukit.ru</string>
+    <string name="action_view_instruction">Инструкция</string>
+    <string name="action_view_privacy_policy">Конфиденциальность</string>
+    <string name="action_view_license">Лицензия</string>
+    <string name="action_view_all_projects">Все проекты</string>
+    <string name="action_instruction_url">https://vukit.ru/projects/bluetooth-master/</string>
+    <string name="action_all_projects_url">https://vukit.ru/</string>
     <string name="app_name_full">Bluetooth Master</string>
     <string name="invalid_mtu_value">Недопустимое значение MTU</string>
     <string name="location_provider">Поставщик координат</string>

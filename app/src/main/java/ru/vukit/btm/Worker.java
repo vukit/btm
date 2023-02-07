@@ -2,6 +2,7 @@ package ru.vukit.btm;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.res.Resources;
 import android.os.Handler;
 import android.view.LayoutInflater;
 
@@ -14,6 +15,7 @@ public class Worker {
     private final Activity activity;
     private final BluetoothDriver btDriver;
     private final Work callback;
+    private final Resources resources = StartApplication.getInstance().getResources();
 
     public interface Work {
         void work();
@@ -27,6 +29,11 @@ public class Worker {
 
     @SuppressLint("InflateParams")
     public void start() {
+        if (!MainActivityModel.getInstance().permissionBluetooth) {
+            new SnackBar().ShowLong(resources.getString(R.string.no_bluetooth_permissions));
+            return;
+        }
+
         if (btDriver.isEnabled()) {
             callback.work();
             return;

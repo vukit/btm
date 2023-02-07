@@ -8,7 +8,6 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -27,6 +26,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.preference.PreferenceManager;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import ru.vukit.btm.bluetooth.BluetoothDriver;
 
 @Keep
@@ -35,12 +37,6 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
     SharedPreferences sharedPreferences;
     final MainActivityModel model = MainActivityModel.getInstance();
     final BluetoothDriver btDriver = BluetoothDriver.getInstance();
-    private static final int PERMISSIONS_REQUEST_BLUETOOTH = 1;
-    private static final int PERMISSIONS_REQUEST_BLUETOOTH_ADMIN = 2;
-    private static final int PERMISSIONS_REQUEST_BLUETOOTH_CONNECT = 3;
-    private static final int PERMISSIONS_REQUEST_INTERNET = 4;
-    private static final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 5;
-    private static final int PERMISSIONS_REQUEST_ACCESS_COARSE_LOCATION = 6;
     LocationManager mLocationManager;
 
     @Override
@@ -73,31 +69,26 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
         }
         selectAction(model.selectedAction);
         if (!model.isCheckedPermission) {
-            model.permissionBluetooth = (ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH) == PackageManager.PERMISSION_GRANTED);
-            if (!model.permissionBluetooth) {
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.BLUETOOTH}, PERMISSIONS_REQUEST_BLUETOOTH);
-            }
-            model.permissionBluetoothAdmin = (ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_ADMIN) == PackageManager.PERMISSION_GRANTED);
-            if (!model.permissionBluetoothAdmin) {
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.BLUETOOTH_ADMIN}, PERMISSIONS_REQUEST_BLUETOOTH_ADMIN);
-            }
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                model.permissionBluetoothConnect = (ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) == PackageManager.PERMISSION_GRANTED);
-                if (!model.permissionBluetoothConnect) {
-                    ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.BLUETOOTH_CONNECT}, PERMISSIONS_REQUEST_BLUETOOTH_CONNECT);
-                }
-            }
+            List<String> allPermissionsRequests = new ArrayList<>();
+            List<String> permissionsRequests;
             model.permissionInternet = (ContextCompat.checkSelfPermission(this, Manifest.permission.INTERNET) == PackageManager.PERMISSION_GRANTED);
             if (!model.permissionInternet) {
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.INTERNET}, PERMISSIONS_REQUEST_INTERNET);
+                allPermissionsRequests.add(Manifest.permission.INTERNET);
             }
-            model.permissionAccessFineLocation = (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED);
-            if (!model.permissionAccessFineLocation) {
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION);
+            permissionsRequests = model.getLocationPermissionsRequests();
+            if (permissionsRequests.isEmpty()) {
+                model.permissionLocation = true;
+            } else {
+                allPermissionsRequests.addAll(permissionsRequests);
             }
-            model.permissionAccessCoarseLocation = (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED);
-            if (!model.permissionAccessCoarseLocation) {
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, PERMISSIONS_REQUEST_ACCESS_COARSE_LOCATION);
+            permissionsRequests = model.getBluetoothPermissionsRequests();
+            if (permissionsRequests.isEmpty()) {
+                model.permissionBluetooth = true;
+            } else {
+                allPermissionsRequests.addAll(permissionsRequests);
+            }
+            if (!allPermissionsRequests.isEmpty()) {
+                ActivityCompat.requestPermissions(this, allPermissionsRequests.toArray(new String[0]), MainActivityModel.PERMISSIONS_REQUEST_ALL);
             }
             model.isCheckedPermission = true;
         }
@@ -108,7 +99,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
     @Override
     protected void onStop() {
         if (!isChangingConfigurations() && sharedPreferences.getBoolean(SettingsFragment.KEY_BLUETOOTH_TURN_OFF, false)) {
-                btDriver.Disable();
+            btDriver.Disable();
         }
         btDriver.unregisterBroadcastReceivers();
         model.disconnectController();
@@ -119,25 +110,30 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        switch (requestCode) {
-            case PERMISSIONS_REQUEST_BLUETOOTH:
-                model.permissionBluetooth = (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED);
-                break;
-            case PERMISSIONS_REQUEST_BLUETOOTH_ADMIN:
-                model.permissionBluetoothAdmin = (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED);
-                break;
-            case PERMISSIONS_REQUEST_BLUETOOTH_CONNECT:
-                model.permissionBluetoothConnect = (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED);
-                break;
-            case PERMISSIONS_REQUEST_INTERNET:
-                model.permissionInternet = (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED);
-                break;
-            case PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION:
-                model.permissionAccessFineLocation = (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED);
-                break;
-            case PERMISSIONS_REQUEST_ACCESS_COARSE_LOCATION:
-                model.permissionAccessCoarseLocation = (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED);
-                break;
+        if (requestCode == MainActivityModel.PERMISSIONS_REQUEST_ALL) {
+            model.permissionBluetooth = true;
+            model.permissionLocation = false;
+            for (int i = 0; i < permissions.length; i++) {
+                switch (permissions[i]) {
+                    case Manifest.permission.INTERNET:
+                        model.permissionInternet = grantResults[i] == PackageManager.PERMISSION_GRANTED;
+                        break;
+                    case Manifest.permission.BLUETOOTH:
+                    case Manifest.permission.BLUETOOTH_ADMIN:
+                    case Manifest.permission.BLUETOOTH_CONNECT:
+                    case Manifest.permission.BLUETOOTH_SCAN:
+                        if (model.permissionBluetooth && grantResults[i] != PackageManager.PERMISSION_GRANTED) {
+                            model.permissionBluetooth = false;
+                        }
+                        break;
+                    case Manifest.permission.ACCESS_FINE_LOCATION:
+                    case Manifest.permission.ACCESS_COARSE_LOCATION:
+                        if (!model.permissionLocation && grantResults[i] == PackageManager.PERMISSION_GRANTED) {
+                            model.permissionLocation = true;
+                        }
+                        break;
+                }
+            }
         }
         setupLocationManager(sharedPreferences.getString(KEY_LOCATION_PROVIDER, LocationManager.PASSIVE_PROVIDER));
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -240,7 +236,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener,
     @SuppressLint("MissingPermission")
     private void setupLocationManager(String locationProvider) {
         if (mLocationManager != null) mLocationManager.removeUpdates(this);
-        if (model.permissionAccessFineLocation || model.permissionAccessCoarseLocation) {
+        if (model.permissionLocation) {
             mLocationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
             if (mLocationManager != null) {
                 try {

@@ -210,4 +210,5 @@
     <string name="location_provider">Поставщик координат</string>
     <string name="turning_on_bluetooth">Включение Bluetooth…</string>
     <string name="bluetooth_turn_off">Отключать BT после закрытия</string>
+    <string name="no_bluetooth_permissions">Нет разрешений для работы с Bluetooth</string>
 </resources>

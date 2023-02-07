@@ -216,6 +216,7 @@
     <string name="location_provider_gps" translatable="false">gps</string>
     <string name="turning_on_bluetooth">Turning on Bluetooth…</string>
     <string name="bluetooth_turn_off">Turn off BT when closing</string>
+    <string name="no_bluetooth_permissions">No permissions to work with Bluetooth</string>
     <string-array name="pref_device_details_startup_screen">
         <item>@string/device_details_startup_screen_home</item>
         <item>@string/device_details_startup_screen_gatt_services</item>

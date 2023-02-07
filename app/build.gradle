@@ -28,8 +28,8 @@ android {
         applicationId "ru.vukit.btm"
         minSdk 29
         targetSdk 33
-        versionCode 302
-        versionName "3.0.2"
+        versionCode 303
+        versionName "3.0.3"
         vectorDrawables.useSupportLibrary = true
         signingConfig signingConfigs.config
         resConfigs "ru", "en"

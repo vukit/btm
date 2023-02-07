@@ -55,6 +55,7 @@ import ru.vukit.btm.database.DatabaseDriver;
 @Keep
 public class DashBoardFragment extends ListFragment implements OnMapReadyCallback {
 
+    final MainActivityModel mainActivityModel = MainActivityModel.getInstance();
     final DashBoardModel model = DashBoardModel.getInstance();
     final DatabaseDriver dbDriver = DatabaseDriver.getInstance();
     final BluetoothDriver btDriver = BluetoothDriver.getInstance();
@@ -263,8 +264,9 @@ public class DashBoardFragment extends ListFragment implements OnMapReadyCallbac
             DeviceDetailsModel.getInstance().getDevice(cursor.getLong(cursor.getColumnIndexOrThrow(DatabaseDriver.DatabaseContract.Devices._ID)));
             cursor.close();
             model.currentPosition = position;
-            if (runFragment != null)
+            if (runFragment != null) {
                 runFragment.Child(getString(R.string.action_dashboard), getString(R.string.action_device_details));
+            }
         }
     };
 
@@ -282,7 +284,9 @@ public class DashBoardFragment extends ListFragment implements OnMapReadyCallbac
     };
 
     void updateView() {
-        pairedDevices = btDriver.getBondedDevices();
+        if (mainActivityModel.permissionBluetooth) {
+            pairedDevices = btDriver.getBondedDevices();
+        }
         bluetoothDevicesAdapter.notifyDataSetChanged();
         requireActivity().invalidateOptionsMenu();
     }

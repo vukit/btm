@@ -103,7 +103,7 @@ class BluetoothDriver extends Observable {
 
     private int getDiscoveryDuration() {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(StartApplication.getInstance());
-        return Integer.parseInt(sharedPreferences.getString(SettingsFragment.KEY_DISCOVERY_DURATION, StartApplication.getInstance().getString(R.string.sec30)).split(" ")[0]);
+        return Integer.parseInt(sharedPreferences.getString(SettingsFragment.KEY_DISCOVERY_DURATION, resources.getString(R.string.sec30)).split(" ")[0]);
     }
 
     private BluetoothSocket rfBluetoothSocket = null;
